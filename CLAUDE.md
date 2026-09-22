@@ -1,6 +1,6 @@
 # ontology-pkg
 
-『온톨로지와 지식 그래프 — 의미 모델링에서 운영·GraphRAG까지』(위키독스, 117절)를
+[『온톨로지와 지식 그래프 — 의미 모델링에서 운영·GraphRAG까지』](https://wikidocs.net/book/20789)(위키독스, 117절)를
 책의 리테일 사례 대신 **오픈소스 패키지 생태계** 도메인으로 다시 밟는 학습 프로젝트다.
 
 책 4부 = 4주. 한 주에 한 부. 12장까지 한 번 통과하는 게 목표고, 깊이는 두 번째 사이클에서 올린다.
@@ -17,12 +17,12 @@ supernode 를 재현하기엔 충분하고 추론기와 Protégé 가 버티는 
 
 | 테이블 | 대응하는 학습 지점 |
 | --- | --- |
-| `package(name, registry)` | 복합키 → IRI (7.3) |
-| `package_version(name, registry, version)` | 복합키 → IRI (7.3) |
-| `dependency(from_name, from_version, to_name, version_range, kind)` | M:N + 관계 속성 (7.4, 8.2) |
-| `license(spdx_id)` | enum (7.4) |
-| `package_maintainer(...)` | M:N (7.4) |
-| `advisory(cve_id, severity)` | enum (7.4) |
+| `package(name, registry)` | 복합키 → IRI ([7.3]) |
+| `package_version(name, registry, version)` | 복합키 → IRI ([7.3]) |
+| `dependency(from_name, from_version, to_name, version_range, kind)` | M:N + 관계 속성 ([7.4], [8.2]) |
+| `license(spdx_id)` | enum ([7.4]) |
+| `package_maintainer(...)` | M:N ([7.4]) |
+| `advisory(cve_id, severity)` | enum ([7.4]) |
 
 ## 제약
 
@@ -30,7 +30,7 @@ supernode 를 재현하기엔 충분하고 추론기와 Protégé 가 버티는 
   RDFLib · owlrl · pySHACL · Protégé(HermiT·ELK) · Fuseki 또는 GraphDB Free · Neo4j Community.
   Entity Resolution 은 blocking + 문자열 유사도로 한다.
 - **12장 GraphRAG 는 검색 층까지만 실행한다.** 청크 임베딩은 로컬 sentence-transformers 로 돌리고,
-  생성 층은 평가 프로토콜만 문서로 남기고 실행하지 않는다. 12.07 LangChain 절은 조회로만 본다.
+  생성 층은 평가 프로토콜만 문서로 남기고 실행하지 않는다. [12.07] LangChain 절은 조회로만 본다.
 
 ## AI 역할
 
@@ -67,12 +67,16 @@ CQ 별 SPARQL 작성 · 복합키 IRI 설계 · 매핑 방식 선택 · reifier 
 전체 지도는 `~/projects/ask-wikidocs/references/book-map.md` 에 있다.
 **볼트를 수정하지 않는다.** 원문은 개인 참고용 사본이다.
 
+절 번호와 wikidocs 원문 URL 의 대응은 `references/book.md` 에 있다 — 볼트가 없어도 이것만으로 원문에 닿는다.
+문서에서 절을 인용할 때는 `[7.3]` 처럼 쓰고 파일 끝 링크 정의 블록에 그 절의 URL 을 추가한다.
+
 ## 구성
 
 ```
 CLAUDE.md          이 파일
 PROGRESS.md        주차별 진행 상태 — 세션 시작 때 먼저 읽는다
 book               책 본문 검색 래퍼
+references/book.md 절 번호 → wikidocs 원문 URL (117절)
 cq/catalog.md      CQ 카탈로그 (5.7 에서 SPARQL 과 대조한다)
 adr/               결정 기록 (2.3)
 data/              packages.db 와 수집 원본
@@ -81,3 +85,9 @@ queries/           CQ 별 SPARQL
 notes/             막힌 것, 받은 반례, 확인 문제 오답
 scripts/           수집·적재·실행 하네스
 ```
+
+<!-- 절 링크 — references/book.md 에서 나온다 -->
+[7.3]: https://wikidocs.net/389960 "7.3 복합키를 IRI로 만들기"
+[7.4]: https://wikidocs.net/389961 "7.4 M -N, enum, 매핑 방식 선택"
+[8.2]: https://wikidocs.net/389965 "8.2 LPG 스키마와 관계 메타데이터 패턴"
+[12.07]: https://wikidocs.net/390008 "12.07 도구 - LangChain 그래프 연동 레퍼런스"
