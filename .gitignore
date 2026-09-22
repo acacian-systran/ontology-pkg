@@ -1,0 +1,20 @@
+# 수집 원본과 적재 산출물 — 스크립트로 재생성한다
+data/*.db
+data/*.db-journal
+data/*.db-wal
+data/raw/
+
+# 변환 산출물 (추론 결과 등) — rdf/ 의 수기 작성 파일은 커밋한다
+rdf/out/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 로컬 전용 설정
+.claude/settings.local.json
+
+# macOS
+.DS_Store

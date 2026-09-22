@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# 책 본문 검색 — ask-wikidocs/bookgrep 을 부른다.
+#   ./book SHACL            본문에 SHACL 이 나오는 절
+#   ./book -l 슈퍼노드       절 이름만
+#   ./book -i "entity resolution"
+# 전체 지도: ~/projects/ask-wikidocs/references/book-map.md
+set -euo pipefail
+exec "$HOME/projects/ask-wikidocs/bookgrep" "$@"

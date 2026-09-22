@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "/Users/acacian/projects/ask-wikidocs",
+      "/Users/acacian/Documents/Obsidian Vault/참고자료/wikidocs"
+    ],
+    "allow": [
+      "Bash(./book:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(sed:*)",
+      "Bash(sqlite3:*)",
+      "Bash(python3:*)",
+      "Bash(docker compose:*)"
+    ]
+  }
+}
